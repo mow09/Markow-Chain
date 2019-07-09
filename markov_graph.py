@@ -16,6 +16,7 @@ import numpy as np
 #import matplotlib.pyplot as plt
 import networkx as nx
 import os
+import imageio
 
 #####
 #
@@ -54,14 +55,14 @@ def save_graph_as_png(edges,weights,states, time, plot_it=False):
     for e,w in zip(edges,weights):
         G.add_edge(e[0], e[1], weight=w, label=w)
 
-    nx.drawing.nx_pydot.write_dot(G, f'markov{time}.dot')
+    nx.drawing.nx_pydot.write_dot(G, f'markov{time+100}.dot')
 
-    os.system(f' dot -Tpng markov{time}.dot -o markov{time}.png')
+    os.system(f' dot -Tpng markov{time+100}.dot -o markov{time+100}.png')
 
-    if plot_it: os.system(f' open markov{time}.png')
+    if plot_it: os.system(f' open markov{time+100}.png')
 
 
-    os.system(f' rm markov{time}.dot')
+    os.system(f' rm markov{time+100}.dot')
 
 #
 #####
@@ -93,6 +94,27 @@ def multi_graph_as_png(time,P,Q,s_0):
 #
 #####
 #
+def gif_maker(kill=False):
+    """
+        GIF MAKER for PNG in current directory
+    """
+    images = []
+    file_names = []
+    for fn  in os.listdir('./'):
+        #not needed, because they are now in a seperated directory
+        if fn.endswith(".png"):
+            file_names.append(fn)
+        else:
+            continue
+    file_names.sort()
+
+    for name in file_names:
+        image = imageio.imread(name)
+        images.append(image)
+
+    imageio.mimsave('result.gif', images, fps=0.25)
+    if kill:
+        os.system('rm *.png')
 
 def why():
     """
@@ -133,8 +155,9 @@ if __name__ == "__main__":
     PROBABILITYMATRIX = np.array(np.mat('0.7 0.1 0.1 0.1; 0.005 0.89 0.1 0.005;\
                                         0.00 0.00 0.8 0.2; 0.01 0.03 0.3 0.66'))#, subok=True)
 
-    e, w, s = edges_weights_specified_state(PROBABILITYMATRIX, Q, SNULL)
-    save_graph_as_png(e,w,s, 32, plot_it=True)
+    #e, w, s = edges_weights_specified_state(PROBABILITYMATRIX, Q, SNULL)
+    #save_graph_as_png(e,w,s, 32, plot_it=True)
 
 
-    multi_graph_as_png(TIMESTEPS,PROBABILITYMATRIX,Q,SNULL)
+    #multi_graph_as_png(TIMESTEPS,PROBABILITYMATRIX,Q,SNULL)
+    gif_maker(True)
