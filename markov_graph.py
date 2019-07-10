@@ -131,7 +131,7 @@ def why():
 
 
 if __name__ == "__main__":
-    Q = ['A','B','C', 'F']
+    Q = ['Ananas','Banana','Coconut', 'Paneapple']
     SNULL = np.array([10,10,10,10])
     #s_0 = SNULL
     TIMESTEPS = 60

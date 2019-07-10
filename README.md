@@ -5,4 +5,6 @@
 
 ## GIF
 
-![a gif :+1:](result.gif)
+### The gif shows the steady state of the shown flavors - all fictive
+
+![a gif :+1:](result_steady_stat.gif)
