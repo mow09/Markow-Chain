@@ -112,7 +112,7 @@ def gif_maker(kill=False):
         image = imageio.imread(name)
         images.append(image)
 
-    imageio.mimsave('result.gif', images, fps=0.25)
+    imageio.mimsave('result.gif', images, fps=1)
     if kill:
         os.system('rm *.png')
 
@@ -151,7 +151,7 @@ if __name__ == "__main__":
     Q = ['A','B','C', 'F']
     SNULL = np.array([10,10,10,10])
     #s_0 = SNULL
-    TIMESTEPS = 30
+    TIMESTEPS = 60
     PROBABILITYMATRIX = np.array(np.mat('0.7 0.1 0.1 0.1; 0.005 0.89 0.1 0.005;\
                                         0.00 0.00 0.8 0.2; 0.01 0.03 0.3 0.66'))#, subok=True)
 
@@ -159,5 +159,5 @@ if __name__ == "__main__":
     #save_graph_as_png(e,w,s, 32, plot_it=True)
 
 
-    #multi_graph_as_png(TIMESTEPS,PROBABILITYMATRIX,Q,SNULL)
+    multi_graph_as_png(TIMESTEPS,PROBABILITYMATRIX,Q,SNULL)
     gif_maker(True)
