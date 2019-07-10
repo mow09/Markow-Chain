@@ -120,29 +120,12 @@ def why():
     """
         why doesnt it work?
     """
-    len(Q)
-
 
     a = np.ones(len(Q))
-
-
     b = P.sum(axis=1)
-
-
-    a
-
-
-    b
-
-
-    a==b
-
-
-    np.all(a==b, axis=0)
-
-
-    #assert np.all(P.sum(axis=1) == np.ones(len(Q)))
-
+    a = a.round(3)
+    b = b.round(3)
+    assert np.all(a==b, axis=0)
 
 
 

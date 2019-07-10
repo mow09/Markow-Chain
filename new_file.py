@@ -21,10 +21,13 @@ Chalange: Write a Chrun Simulator:
 OPTIONAL:
 
 - Price the products, estimate customer lifetime value (CLV )
-- Plot the sumber of customers in each state
+- Plot the number of customers in each state
 - Try to find a steady state
 
+- idealisiert OR wo gehen sie wirklich hin () - customer lifetime value
+
 """
+from numpy import array, mat
 
 def markov_chain(s_0,time_steps, P):
     """
@@ -41,10 +44,11 @@ def markov_chain(s_0,time_steps, P):
 
 if __name__ == "__main__":
     Q = ['A','B','C', 'F']
-    SNULL = np.array([10,10,10,10])
+    SNULL = array([10,10,10,10])
     #s_0 = SNULL
-    TIMESTEPS = 30
-    PROBABILITYMATRIX = np.array(np.mat('0.7 0.1 0.1 0.1; 0.005 0.89 0.1 0.005;\
+    TIMESTEPS = 10
+    PROBABILITYMATRIX = array(mat('0.7 0.1 0.1 0.1; 0.005 0.89 0.1 0.005;\
                                         0.00 0.00 0.8 0.2; 0.01 0.03 0.3 0.66'))#, subok=True)
 
     result = markov_chain(SNULL, TIMESTEPS, PROBABILITYMATRIX)
+    print(result)
