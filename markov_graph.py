@@ -61,7 +61,6 @@ def save_graph_as_png(edges,weights,states, time, plot_it=False):
 
     if plot_it: os.system(f' open markov{time+100}.png')
 
-
     os.system(f' rm markov{time+100}.dot')
 
 #
@@ -94,7 +93,7 @@ def multi_graph_as_png(time,P,Q,s_0):
 #
 #####
 #
-def gif_maker(kill=False):
+def gif_maker(gif_name='result007',frames=3, kill=False):
     """
         GIF MAKER for PNG in current directory
     """
@@ -112,13 +111,14 @@ def gif_maker(kill=False):
         image = imageio.imread(name)
         images.append(image)
 
-    imageio.mimsave('result.gif', images, fps=1)
+    imageio.mimsave(f'{gif_name}.gif', images, fps=frames)
     if kill:
         os.system('rm *.png')
 
 def why():
     """
         why doesnt it work?
+        -> float is not perfect on binary !!
     """
 
     a = np.ones(len(Q))
@@ -131,16 +131,16 @@ def why():
 
 
 if __name__ == "__main__":
-    Q = ['Ananas','Banana','Coconut', 'Paneapple']
-    SNULL = np.array([10,10,10,10])
+    Q = ['Ananas','Banana','Coconut', 'Paneapple', 'Chicken']
+    SNULL = np.array([100,100,100,100, 100])
     #s_0 = SNULL
-    TIMESTEPS = 60
-    PROBABILITYMATRIX = np.array(np.mat('0.7 0.1 0.1 0.1; 0.005 0.89 0.1 0.005;\
-                                        0.00 0.00 0.8 0.2; 0.01 0.03 0.3 0.66'))#, subok=True)
+    TIMESTEPS = 120
+    PROBABILITYMATRIX = np.array(np.mat('0.7 0.1 0.1 0.1 0.0; 0.105 0.69 0.05 0.15 0.005;\
+                                        0.075 0.125 0.7 0.05 0.05; 0.01 0.055 0.825 0.05 0.06; 0.1 0.4 0.4 0.1 0.0'))#, subok=True)
 
     #e, w, s = edges_weights_specified_state(PROBABILITYMATRIX, Q, SNULL)
     #save_graph_as_png(e,w,s, 32, plot_it=True)
 
 
     multi_graph_as_png(TIMESTEPS,PROBABILITYMATRIX,Q,SNULL)
-    gif_maker(True)
+    gif_maker(kill=True)
