@@ -71,6 +71,7 @@ def markov_chain(s_0,time_steps, P):
         returns the state transitions for n time_steps
         s_n = s_0 o P^n
     """
+    check_size_Q_P(s_0,P)
     res = []
     for i in range(0,time_steps):
         if i == 0:
@@ -115,7 +116,7 @@ def gif_maker(gif_name='result007',frames=3, kill=False):
     if kill:
         os.system('rm *.png')
 
-def why():
+def check_size_Q_P(Q,P):
     """
         why doesnt it work?
         -> float is not perfect on binary !!
