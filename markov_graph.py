@@ -94,13 +94,13 @@ def multi_graph_as_png(time,P,Q,s_0):
 #
 #####
 #
-def gif_maker(gif_name='result007',frames=3, kill=False):
+def gif_maker(file_path, gif_name='result007',frames=3, kill=False):
     """
         GIF MAKER for PNG in current directory
     """
     images = []
     file_names = []
-    for fn  in os.listdir('./'):
+    for fn  in os.listdir(file_path):
         #not needed, because they are now in a seperated directory
         if fn.endswith(".png"):
             file_names.append(fn)
@@ -132,6 +132,7 @@ def check_size_Q_P(Q,P):
 
 
 if __name__ == "__main__":
+    FULL_PATH = './'
     Q = ['Ananas','Banana','Coconut', 'Paneapple', 'Chicken']
     SNULL = np.array([100,100,100,100, 100])
     #s_0 = SNULL
@@ -144,4 +145,4 @@ if __name__ == "__main__":
 
 
     multi_graph_as_png(TIMESTEPS,PROBABILITYMATRIX,Q,SNULL)
-    gif_maker(kill=True)
+    gif_maker(FULL_PATH, kill=True)
