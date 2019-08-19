@@ -109,7 +109,7 @@ def gif_maker(file_path, gif_name='result007',frames=3, kill=False):
     file_names.sort()
 
     for name in file_names:
-        image = imageio.imread(name)
+        image = imageio.imread(file_path+name)
         images.append(image)
 
     imageio.mimsave(f'{gif_name}.gif', images, fps=frames)
