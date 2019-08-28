@@ -4,7 +4,6 @@ import os
 import numpy as np
 from markov_graph import (
     edges_weights_specified_state,
-    save_graph_as_png,
     markov_chain,
     multi_graph_as_png,
 )
