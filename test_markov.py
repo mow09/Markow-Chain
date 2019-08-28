@@ -1,11 +1,9 @@
 """Test for Markov Graph."""
 
-import os
 import numpy as np
 from markov_graph import (
     edges_weights_specified_state,
     markov_chain,
-    multi_graph_as_png,
 )
 
 FULL_PATH = './'
@@ -28,22 +26,6 @@ def test_edges_and_weights():
         MARKET,
         SNULL)
     assert len(edges) == len(weights) == (len(state_value)**2)
-
-
-def test_multi_graph():
-    """
-    Testing the Multi-Graph.
-
-    Testing that the amount of the creates images are
-    the same as the amount of the timesteps.
-    """
-    multi_graph_as_png(TIMESTEPS, PROBABILITYMATRIX, MARKET, SNULL)
-    counter = 0
-    for f_name in os.listdir('./'):
-        if f_name.endswith(".png"):
-            counter += 1
-            os.remove(f_name)
-    assert counter == TIMESTEPS
 
 
 def test_markov_chain():
