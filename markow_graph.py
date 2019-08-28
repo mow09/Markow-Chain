@@ -46,17 +46,17 @@ def save_graph_as_png(edges, weights, states, time, plot_it=False):
     for e, w in zip(edges, weights):
         graph.add_edge(e[0], e[1], weight=w, label=w)
 
-    nx.drawing.nx_pydot.write_dot(graph, f'markov{time+100}.dot')
+    nx.drawing.nx_pydot.write_dot(graph, f'markow{time+100}.dot')
 
-    os.system(f' dot -Tpng markov{time+100}.dot -o markov{time+100}.png')
+    os.system(f' dot -Tpng markow{time+100}.dot -o markow{time+100}.png')
 
     if plot_it:
-        os.system(f' open markov{time+100}.png')
+        os.system(f' open markow{time+100}.png')
 
-    os.system(f' rm markov{time+100}.dot')
+    os.system(f' rm markow{time+100}.dot')
 
 
-def markov_chain(s_0, time_steps, P):
+def markow_chain(s_0, time_steps, P):
     """Calculate the Property-Matrix."""
     check_size_Q_P(s_0, P)
     res = []
@@ -73,7 +73,7 @@ def markov_chain(s_0, time_steps, P):
 
 def multi_graph_as_png(time: int, P, Q, s_0):
     """Save an image for every discret time step from Markov Chain."""
-    s_t = markov_chain(s_0, time, P)
+    s_t = markow_chain(s_0, time, P)
 
     for s, t in zip(s_t, range(0, time)):
         ed, we, Qs = edges_weights_specified_state(P, Q, s)

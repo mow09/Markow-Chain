@@ -1,9 +1,9 @@
 """Test for Markov Graph."""
 
 import numpy as np
-from markov_graph import (
+from markow_graph import (
     edges_weights_specified_state,
-    markov_chain,
+    markow_chain,
 )
 
 FULL_PATH = './'
@@ -28,7 +28,7 @@ def test_edges_and_weights():
     assert len(edges) == len(weights) == (len(state_value)**2)
 
 
-def test_markov_chain():
+def test_markow_chain():
     """Testing the changes between the timestemps."""
-    amount = len(markov_chain(SNULL, TIMESTEPS, PROBABILITYMATRIX))
+    amount = len(markow_chain(SNULL, TIMESTEPS, PROBABILITYMATRIX))
     assert TIMESTEPS == amount
