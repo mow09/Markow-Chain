@@ -65,7 +65,6 @@ def markov_chain(s_0, time_steps, P):
             res.append(s_0)
         else:
             res.append(res[i-1].dot(P))
-    print(res)
     return res
 #
 #####
