@@ -1,6 +1,6 @@
 .ipynb_checkpoints/*
 *.png
-Untitled.ipynb
+Untitled*
 __pycache__/*
 test.txt
 .DS_Store

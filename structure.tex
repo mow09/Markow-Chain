@@ -1,0 +1,46 @@
+
+\usepackage[english]{babel} 
+\usepackage{microtype} 
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage[svgnames]{xcolor} 
+\usepackage[hang, small, labelfont=bf, up, textfont=it]{caption} 
+\usepackage{booktabs} 
+\usepackage{lastpage} 
+\usepackage{graphicx}
+\usepackage{enumitem}
+\setlist{noitemsep} 
+\usepackage{sectsty} 
+ \allsectionsfont{\usefont{OT1}{phv}{b}{n}} 
+\usepackage{geometry} 
+\geometry{top=1cm, bottom=1.5cm, left=2cm, right=2cm, includehead,includefoot,}
+\setlength{\columnsep}{7mm} 
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc} 
+\usepackage{XCharter} 
+\usepackage{fancyhdr} 
+\pagestyle{fancy} 
+\renewcommand{\headrulewidth}{0.0pt} 
+\renewcommand{\footrulewidth}{0.4pt} 
+ \renewcommand{\sectionmark}[1]{\markboth{#1}{}} 
+ \lhead{}
+\chead{\textit{\thetitle}} 
+\rhead{}
+\lfoot{}
+\cfoot{} 
+\fancypagestyle{firstpage}{\fancyhf{} \renewcommand{\footrulewidth}{0pt}}
+\newcommand{\authorstyle}[1]{{\large\usefont{OT1}{phv}{b}{n}\color{DarkBlue}#1}} 
+\newcommand{\institution}[1]{{\footnotesize\usefont{OT1}{phv}{m}{sl}\color{Black}#1}} 
+\usepackage{titling}
+\newcommand{\HorRule}{\color{black}\rule{\linewidth}{1pt}} 
+\pretitle{	\vspace{-30pt} 	\HorRule\vspace{10pt} \fontsize{32}{36}\usefont{OT1}{phv}{b}{n}\selectfont \color{DarkBlue}}
+\posttitle{\par\vskip 10pt} 
+\preauthor{} 
+\postauthor{ 	\vspace{10pt} 	\par\HorRule \vspace{0pt}}
+\usepackage{lettrine} 
+\usepackage{fix-cm}	
+\newcommand{\initial}[1]{ 	\lettrine[lines=3,findent=4pt,nindent=0pt]{		\color{DarkGoldenrod}		{#1}}{}}
+\usepackage{xstring} 
+\newcommand{\lettrineabstract}[1]{	\StrLeft{#1}{1}[\irstletter] 	\initial{\irstletter}\textbf{\StrGobbleLeft{#1}{llsectionsfont1}} }
+\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} 
+\addbibresource{example.bib} 
+\usepackage[autostyle=true]{csquotes}
